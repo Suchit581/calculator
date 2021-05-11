@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Calculator</title>
+
+		<!-- google font code -->
+		<!-- * Roboto Font is used from cdn -->
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- external style sheet -->
+		<link rel="stylesheet" href="style/style.css" />
+	</head>
+	<body>
+		<!-- calculator section start here -->
+		<section class="calculator" id="calculator">
+			<!-- container start here -->
+			<div class="container">
+				<!-- wave animation start here -->
+				<div class="wave"></div>
+				<!-- wave animation end here -->
+				<!-- calculator wrapper start here -->
+				<div class="calculator-wrapper">
+					<!-- 
+						? 1. header - showing the toggle theme button
+						? 2. display - show output and history number for calculator
+						? 3. keys - keys for calculator
+					-->
+					<div class="header">
+						<span class="mode-toggle" id="toggleTheme">
+							<i class="far fa-moon"></i>
+							<i class="far fa-lightbulb"></i>
+						</span>
+					</div>
+					<div class="display">
+						<label for="display"></label>
+						<input type="text" value="0" disabled id="display" />
+					</div>
+					<div class="keys">
+						<div role="button" class="key action ac">AC</div>
+						<div role="button" class="key action backspace">&#x232B;</div>
+						<div role="button" class="key operator module">%</div>
+						<div role="button" class="key operator division">&div;</div>
+						<div role="button" class="key number seven">7</div>
+						<div role="button" class="key number eight">8</div>
+						<div role="button" class="key number nine">9</div>
+						<div role="button" class="key operator multiplication">&#215;</div>
+						<div role="button" class="key number four">4</div>
+						<div role="button" class="key number five">5</div>
+						<div role="button" class="key number six">6</div>
+						<div role="button" class="key operator minus">-</div>
+						<div role="button" class="key number one">1</div>
+						<div role="button" class="key number two">2</div>
+						<div role="button" class="key number three">3</div>
+						<div role="button" class="key operator plus">+</div>
+						<div role="button" class="key sign plus-minus">&pm;</div>
+						<div role="button" class="key number zero">0</div>
+						<div role="button" class="key number dot">.</div>
+						<div role="button" class="key sign equals">=</div>
+					</div>
+				</div>
+				<!-- calculator wrapper end here -->
+			</div>
+			<!-- container end here -->
+		</section>
+		<!-- calculator section end here -->
+
+		<!-- 
+			* font-awesome cdn
+			* custom script file here
+		-->
+		<!-- script -->
+		<script
+			src="https://kit.fontawesome.com/6a7e215d49.js"
+			crossorigin="anonymous"
+		></script>
+		<script src="script/script.js"></script>
+	</body>
+</html>

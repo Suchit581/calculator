@@ -1,0 +1,384 @@
+// basic css for the resting and other things
+:root {
+	--color-white-1: #f9f9f9;
+	--color-white-2: #d4d7d8;
+	--color-white-3: #a9b3b4;
+	--color-white-4: #f1f1f1;
+	--color-black-1: #283637;
+	--color-black-2: #1e2b2c;
+	--color-green-1: #029687;
+	--color-green-2: #283939;
+	--color-green-3: #027468;
+}
+
+@keyframes scale-animation {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(0);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+html,
+body {
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.5;
+	font-size: 16px;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	color: var(--color-white-3);
+}
+
+.display-none {
+	display: none;
+}
+
+/* Designing the calculator */
+section.calculator {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.container {
+		height: 100vh;
+		width: 100vw;
+		background: var(--color-white-1);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0.2rem 0.2rem 2rem rgba(0, 0, 0, 0.5);
+
+		.calculator-wrapper {
+			overflow: hidden;
+			background: var(--color-white-1);
+			// clip-path: circle(140% at 97% 3.5%);
+			transition: all ease-in-out;
+
+			.header {
+				display: flex;
+				justify-content: flex-end;
+				position: relative;
+				.mode-toggle {
+					width: 2.5rem;
+					height: 2.5rem;
+					font-size: 1.5rem;
+					display: grid;
+					place-items: center;
+					border-radius: 10rem;
+					z-index: 11;
+					i:last-child {
+						display: none;
+					}
+					i:first-child {
+						display: block;
+					}
+
+					&:hover,
+					&:focus-within {
+						i {
+							color: var(--color-black-1);
+						}
+					}
+				}
+			}
+
+			.display {
+				display: flex;
+				justify-content: flex-end;
+				flex-direction: column;
+				min-width: 100vw;
+				width: 100%;
+				height: 10rem;
+				position: relative;
+				label {
+					position: absolute;
+					text-align: right;
+					width: 100%;
+					top: 15%;
+					left: 0;
+					padding-right: 2rem;
+					font-weight: 500;
+					font-family: inherit;
+					z-index: 2;
+					font-size: 1rem;
+				}
+				input {
+					position: absolute;
+					outline: none;
+					border: none;
+					background-image: none;
+					background-color: transparent;
+					-webkit-box-shadow: none;
+					-moz-box-shadow: none;
+					box-shadow: none;
+					width: 100%;
+					display: block;
+					height: 100%;
+					text-align: right;
+					padding: 0 1rem;
+					font-size: 1.8rem;
+					font-family: inherit;
+					caret-color: var(--color-green-1);
+					font-weight: 500;
+					transition: all 250ms linear;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+				z-index: 2;
+			}
+
+			.keys {
+				z-index: 10;
+				padding: 1.5rem 0;
+				margin-top: 1rem;
+				display: grid;
+				grid-template-areas:
+					'ac backspace module division'
+					'seven eight nine multiplication'
+					'four five six minus'
+					'one two three plus'
+					'plus-minus zero dot equals';
+				grid-column-gap: 0rem;
+				grid-row-gap: 2rem;
+				place-items: center;
+				-webkit-tap-highlight-color: transparent;
+				div {
+					width: 3.5rem;
+					height: 3.5rem;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-weight: 500;
+					font-size: 1.8rem;
+					border-radius: 10rem;
+					vertical-align: center;
+					font-family: inherit;
+					transition: all 250ms linear;
+					z-index: 1;
+					&.key {
+						cursor: pointer;
+						user-select: none;
+					}
+
+					&:hover,
+					&:focus-within {
+						background: var(--color-white-2);
+					}
+
+					&.ac {
+						grid-area: ac;
+					}
+					&.backspace {
+						grid-area: backspace;
+					}
+					&.module {
+						grid-area: module;
+					}
+					&.division {
+						grid-area: division;
+					}
+					&.seven {
+						grid-area: seven;
+					}
+					&.eight {
+						grid-area: eight;
+					}
+					&.nine {
+						grid-area: nine;
+					}
+					&.multiplication {
+						grid-area: multiplication;
+					}
+					&.four {
+						grid-area: four;
+					}
+					&.five {
+						grid-area: five;
+					}
+					&.six {
+						grid-area: six;
+					}
+					&.minus {
+						grid-area: minus;
+					}
+					&.one {
+						grid-area: one;
+					}
+					&.two {
+						grid-area: two;
+					}
+					&.three {
+						grid-area: three;
+					}
+					&.plus {
+						grid-area: plus;
+					}
+					&.plus-minus {
+						grid-area: plus-minus;
+					}
+					&.zero {
+						grid-area: zero;
+					}
+					&.dot {
+						grid-area: dot;
+					}
+					&.equals {
+						grid-area: equals;
+					}
+
+					&.plus-minus {
+						span {
+							color: var(--color-black-1);
+						}
+					}
+
+					&.division,
+					&.multiplication,
+					&.minus,
+					&.plus,
+					&.equals,
+					&.plus-minus {
+						font-size: 3rem;
+						font-weight: 300;
+					}
+
+					&.module,
+					&.division,
+					&.multiplication,
+					&.minus,
+					&.plus,
+					&.equals,
+					&.ac,
+					&.backspace,
+					&.plus-minus {
+						color: var(--color-green-1);
+						opacity: 0.8;
+					}
+
+					&.ac,
+					&.backspace,
+					&.plus-minus {
+						color: var(--color-black-1);
+					}
+
+					&.division,
+					&.multiplication,
+					&.minus,
+					&.plus,
+					&.equals,
+					&.module {
+						background-color: var(--color-white-1);
+
+						&:hover,
+						&:focus-within {
+							background-color: var(--color-white-2);
+						}
+					}
+					&.ac,
+					&.backspace {
+						background-color: var(--color-green-1);
+						color: var(--color-white-1);
+
+						&:hover,
+						&:focus-within {
+							background-color: var(--color-green-3);
+							color: var(--color-white-1);
+						}
+					}
+				}
+			}
+
+			&.active {
+				.header {
+					.mode-toggle {
+						animation: scale-animation 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+					}
+				}
+			}
+
+			&.dark-theme {
+				background: var(--color-white-1);
+				// clip-path: circle(0% at 97% 3.5%);
+
+				.header {
+					.mode-toggle {
+						i {
+							transition: all 250ms linear;
+						}
+						i:first-child {
+							display: none;
+						}
+						i:last-child {
+							display: block;
+						}
+
+						&:hover,
+						&:focus-within {
+							i {
+								color: var(--color-white-2);
+							}
+						}
+					}
+				}
+
+				.display {
+					position: relative;
+					// background: red;
+					// width: 100%;
+					input {
+						color: var(--color-white-1);
+					}
+				}
+
+				.keys {
+					div {
+						&:hover,
+						&:focus-within {
+							background: var(--color-black-2);
+						}
+
+						&.plus-minus {
+							color: var(--color-white-1);
+						}
+					}
+				}
+			}
+
+			@media (min-width: 992px) {
+				width: 25vw;
+				height: auto;
+				box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.05);
+				&.dark-theme {
+					box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+				}
+				.display {
+					min-width: 25vw;
+				}
+			}
+		}
+
+		@media (min-width: 992px) {
+			width: 25vw;
+			height: auto;
+			position: relative;
+		}
+	}
+}
